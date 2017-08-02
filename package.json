@@ -4,7 +4,10 @@
   "description": "interface debug for schoolwork",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "eslint": "npx eslint .",
+    "eslint-fix": "npx eslint --fix ."
   },
   "author": "",
   "license": "ISC",
