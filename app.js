@@ -1,18 +1,20 @@
 /**
  * Created by HUI on 2017/7/31.
  */
-const Koa = require('koa');
-const views = require('koa-views');
-const router = require('koa-router')(); // 封装路由
-const bodyParser = require('koa-bodyparser'); // 解析request的body
-const logger = require('koa-logger');
-const staticServer = require('koa-static');
-const db = require('./rest/models/db');
-const home = require('./rest/routes/index');
-const api = require('./rest/routes/apis');
-const modules = require('./rest/routes/module');
-const path = require('path');
+import Koa from "koa";
+import views from "koa-views";
+import koa_router from "koa-router";
+import bodyParser from "koa-bodyparser";// 解析request的body
+import logger from "koa-logger";
+import staticServer from "koa-static";
+import db from "./rest/models/db";
+import api from "./rest/routes/apis";
+import home from "./rest/routes/index";
+import modules from "./rest/routes/module";
+import path from "path";
 
+
+const router = koa_router(); // 封装路由
 const app = new Koa();
 
 app.use(bodyParser())

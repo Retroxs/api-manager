@@ -2,14 +2,13 @@
  * Created by HUI on 2017/8/1.
  */
 
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
+import moduleSchema from "../models/module";
+import apiSchema from "../models/api";
 
 mongoose.Promise = global.Promise;
-const moduleSchema = require('../models/module');
 
 const ModuleModel = mongoose.model('Module');
-const apiSchema = require('../models/api');
-
 const ApiModel = mongoose.model('Api');
 
 class ApiController {
@@ -85,4 +84,4 @@ class ApiController {
   }
 }
 
-module.exports = ApiController;
+export default ApiController;

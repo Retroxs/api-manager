@@ -36,4 +36,4 @@ class homeController {
   }
 }
 
-module.exports = homeController;
+export default homeController;

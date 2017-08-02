@@ -2,8 +2,10 @@
  * Created by HUI on 2017/8/1.
  */
 
-const router = require('koa-router')();
-const moduleCtrl = require('../controllers/module');
+import koa_router from "koa-router";
+import moduleCtrl from "../controllers/module";
+
+const router = koa_router();
 
 router
   .get('/get', moduleCtrl.getModuleList)
@@ -11,4 +13,4 @@ router
   .put('/update/:id', moduleCtrl.updateModule)
   .delete('/remove/:id', moduleCtrl.removeModule);
 
-module.exports = router;
+export default router;

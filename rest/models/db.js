@@ -2,8 +2,8 @@
  * Created by HUI on 2017/8/2.
  */
 
-const mongoose = require('mongoose');
-const config = require('../../config/common');
+import mongoose from "mongoose";
+import config from "../../config/common";
 
 // mongoose.set('debug', mongodb.debug);
 mongoose.connect(config.mongo.uri, config.mongo.options);
@@ -22,4 +22,3 @@ mongoose.connection.on('error', (err) => {
 mongoose.connection.on('disconnected', () => {
   console.log('Mongoose connection disconnected');
 });
-require('module');

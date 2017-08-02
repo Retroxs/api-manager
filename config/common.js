@@ -2,7 +2,7 @@
  * Created by HUI on 2017/8/1.
  */
 
-module.exports = {
+export default {
   mongo: {
     uri: 'mongodb://127.0.0.1:27017/api',
     options: {

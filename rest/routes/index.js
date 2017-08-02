@@ -2,8 +2,10 @@
  * Created by HUI on 2017/8/2.
  */
 
-const router = require('koa-router')();
-const pageCtrl = require('../controllers/page');
+import koa_router from "koa-router";
+import pageCtrl from "../controllers/page";
+
+const router = koa_router();
 
 router
   .get('home', pageCtrl.getHomePage)
@@ -13,4 +15,4 @@ router
   .get('updateApiInfo', pageCtrl.getUpdateApiInfo)
   .get('createApiInfo/:module', pageCtrl.getCreateApiByModule)
 
-module.exports = router;
+export default router;

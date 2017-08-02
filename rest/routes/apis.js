@@ -2,8 +2,9 @@
  * Created by HUI on 2017/8/1.
  */
 
-const router = require('koa-router')();
-const apiCtrl = require('../controllers/api');
+import koa_router from "koa-router";
+import apiCtrl from "../controllers/api";
+const router = koa_router();
 
 router
   .get('/get', apiCtrl.getApiList)
@@ -12,4 +13,4 @@ router
   .put('/update/:id', apiCtrl.updateApi)
   .delete('/remove/:id', apiCtrl.removeApi);
 
-module.exports = router;
+export default router;

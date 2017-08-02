@@ -1,10 +1,10 @@
 /**
  * Created by HUI on 2017/8/1.
  */
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
+import moduleSchema from "../models/module";
 
 mongoose.Promise = global.Promise;
-const moduleSchema = require('../models/module');
 
 const ModuleModel = mongoose.model('Module');
 
@@ -61,4 +61,4 @@ class ModuleController {
   }
 }
 
-module.exports = ModuleController;
+export default ModuleController;
