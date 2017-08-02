@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>接口信息</title>
+    <link rel="stylesheet" href="./css/public.css"/>
+    <link rel="stylesheet" href="./css/apiInfo.css"/>
+</head>
+<body>
+<div class="content">
+    <div class="contentList">
+        <h4 class="Title">api接口</h4>
+        <div class="apiListMain">
+            <span>模块:</span>
+            <select name="" id="">
+                <% for(var i = 0; i < modules.length; i++) { %>
+                <option value="<%= modules[i].label %>"><%= modules[i].label %></option>
+                <% } %>
+            </select>
+        </div>
+    </div>
+    <div style="text-align: center">
+        <button onclick="createApi()">新建</button>
+    </div>
+</div>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/apiInfo.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+.createModel{
+    text-align: center;
+}
+
+.createModel span{
+    display: inline-block;
+    width:100px;
+    text-align: right;
+    margin-right:20px;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建api信息</title>
+    <link rel="stylesheet" href="/css/public.css"/>
+    <link rel="stylesheet" href="/css/infoModel.css"/>
+</head>
+<body>
+<div class="content">
+    <h4 class="Title">创建api接口</h4>
+    <div class="info">
+        <span>模块名:</span>
+        <select name="model">
+            <% for(var i=0; i<modules.length; i++) {%>
+            <option <%if (modules[i].label === selected ){%> selected <% } %>><%=modules[i].label%></option>
+            <% } %>
+        </select>
+    </div>
+    <div class="info">
+        <span>api名称:</span><input name="name" type="text"/>
+    </div>
+    <div class="info">
+        <span>url:</span><input name="url" type="text"/>
+    </div>
+    <div class="info">
+        <span>方法:</span><select name="method"></select>
+    </div>
+    <div class="info">
+        <h5>参数输入请以逗号分隔!</h5>
+    </div>
+    <div class="info">
+        <span>body参数:</span><input name="body" type="text"/>
+    </div>
+    <div class="info">
+        <span>params参数:</span><input name="params" type="text"/>
+    </div>
+    <div class="info">
+        <span>query参数:</span><input name="query" type="text"/>
+    </div>
+    <div style="text-align: center">
+        <button class="sendInfo">确定</button>
+    </div>
+</div>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/createApiInfo.js"></script>
+</body>
+</html>

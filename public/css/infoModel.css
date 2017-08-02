@@ -1,0 +1,16 @@
+.info{
+    text-align: center;
+    width:500px;
+    margin:0 auto;
+}
+.info span{
+    display: inline-block;
+    width:100px;
+    text-align: right;
+    margin-right:20px;
+    margin-bottom: 20px;
+}
+
+.info h5{
+    color: red;
+}

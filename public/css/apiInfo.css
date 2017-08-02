@@ -1,0 +1,39 @@
+.main{
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    color: #333;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.apiListMain{
+    width:800px;
+    margin:0 auto;
+}
+
+.apiListMain span{
+    display: inline-block;
+    line-height: 30px;
+    margin-right: 20px;
+}
+
+.apiListMain select{
+    margin-top: 10px;
+}
+
+.apiListMain p{
+    display: inline-block;
+}
+
+.apiListMain button.edit{
+    margin:0 10px;
+}
+
+.apiListMain button.delete{
+    color: #fff;
+    background-color: #ff4949;
+    border-color: #ff4949;
+}

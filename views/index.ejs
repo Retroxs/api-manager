@@ -1,3 +1,35 @@
-<html>
-112
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>接口调试</title>
+    <link rel="stylesheet" href="/css/jquery.jsonview.css"/>
+    <link rel="stylesheet" href="/css/public.css"/>
+    <link rel="stylesheet" href="/css/index.css"/>
+</head>
+<body>
+<div class="content" style="">
+    <div>
+        <label class="title" for="">模块:</label>
+        <select name="" id="model">
+            <% for(var i=0; i<modules.length; i++) {%>
+            <option><%=modules[i].label%></option>
+            <% } %>
+        </select><br>
+    </div>
+    <div><label class="title" for="">接口列表:</label><select name="" id="list"></select><br></div>
+    <div><label class="title" for="">参数列表:</label><br></div>
+    <div id="query">
+
+    </div>
+    <div style="text-align: center">
+        <button id="send">发送</button>
+    </div>
+</div>
+
+<div id="json"></div>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="./js/jquery.jsonview.js"></script>
+<script src="//unpkg.com/axios/dist/axios.min.js"></script>
+</body>
 </html>
