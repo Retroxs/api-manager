@@ -1,0 +1,9 @@
+# macos file
+.DS_Store
+
+# node package depencies
+node_modules/
+
+# idea file
+.idea/
+
