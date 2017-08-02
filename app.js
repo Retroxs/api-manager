@@ -17,7 +17,7 @@ const app = new Koa();
 
 app.use(bodyParser())
   .use(logger())
-  .use(staticServer(path.resolve('resource/dist')));
+  .use(staticServer(path.resolve('public')));
 
 app.use(views(`${__dirname}/views`, {
   extension: 'ejs',
