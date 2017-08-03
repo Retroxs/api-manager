@@ -13,5 +13,4 @@ router
   .post('/create', apiCtrl.createApi)
   .put('/update/:id', apiCtrl.updateApi)
   .delete('/remove/:id', apiCtrl.removeApi);
-
 export default router;

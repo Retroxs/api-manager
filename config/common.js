@@ -11,4 +11,5 @@ export default {
     debug: false,
   },
   port: '3000',
+  proxy_host:'http://127.0.0.1:8080'
 };

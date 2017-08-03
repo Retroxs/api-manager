@@ -17,6 +17,9 @@ $(document).ready(function () {
       data: json,
       success: function () {
         window.location.href = '/apiInfo'
+      },
+      error:function (res) {
+        alert(res.responseJSON.msg)
       }
     })
   })

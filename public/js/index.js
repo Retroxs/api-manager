@@ -32,6 +32,14 @@ function setQueryList() {
   // var bodyList = body.split(',')
   var paramsList = params.split(',')
 
+  var bool = list.find('option:selected').attr('method')
+
+  if (bool == 'GET' || bool == 'DELETE'){
+    $('#bodyParams').css('display', 'none')
+  }else {
+    $('#bodyParams').css('display', 'block')
+  }
+
   query.children().remove()
 
   appendPathList(queryList, 'query')
@@ -71,14 +79,6 @@ function setList(items) {
     var Node = `<option value="${item.api}" method="${item.method}" query="${item.query}" body="${item.body}" params="${item.params}">${item.name}</option>`
     list.append(Node)
   })
-
-  var bool = list.find('option:selected').attr('method')
-
-  if (bool == 'GET' || bool == 'DELETE'){
-    $('#bodyParams').css('display', 'none')
-  }else {
-    $('#bodyParams').css('display', 'block')
-  }
 
   setQueryList()
 }
@@ -138,16 +138,20 @@ function SendApi() {
         params: queryList
       })
         .then((res) => {
-          createJsonList(res.data, url, modelName, apiName)
+          createJsonList(res, api, modelName, apiName)
         })
+        // .catch((res) => {
+        //   createJsonList(res, api, modelName, apiName)
+        // })
     } else {
       if (!isJSON(bodyList)){
         alert('body参数需要写成json格式')
         return
       }
-      axios.post(api, {
-        data: JSON.parse(bodyList)
-      })
+      axios.post(api, JSON.parse(bodyList))
+        .then((res) => {
+          createJsonList(res.data, api, modelName, apiName)
+        })
     }
 
   })

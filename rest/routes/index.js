@@ -8,7 +8,7 @@ import pageCtrl from '../controllers/page';
 const router = koa_router();
 
 router
-  .get('home', pageCtrl.getHomePage)
+  .get('/', pageCtrl.getHomePage)
   .get('createModel', pageCtrl.getCreateModel)
   .get('apiInfo', pageCtrl.getApiInfo)
   .get('createApiInfo', pageCtrl.getCreateApiInfo)

@@ -12,16 +12,29 @@
     <div class="info">
         <span>模块名:</span>
         <select name="model">
-            <% for(var i=0; i<modules.length; i++) {%>
-            <option <%if (modules[i].label === selected ){%> selected <% } %>><%=modules[i].label%></option>
+            <% for(var i = 0; i < modules.length; i++) { %>
+            <option
+                    <% if (typeof selected !== "undefined" && modules[i].label === selected ){ %>
+                    selected
+                    <% } %>
+            ><%= modules[i].label %></option>
             <% } %>
         </select>
     </div>
     <div class="info">
-        <span>api名称:</span><input name="name" type="text"/>
+        <span>api名称:</span>
+        <input name="name" type="text"
+               value=<% if (typeof api !== "undefined" ){ %>
+               <%= api.name %>
+                <% } %>>
     </div>
     <div class="info">
-        <span>url:</span><input name="url" type="text"/>
+        <span>url:</span>
+        <input name="url"
+               type="text"
+               value=<% if (typeof api !== "undefined" ){ %>
+               <%= api.url %>
+                <% } %>>
     </div>
     <div class="info">
         <span>方法:</span>
@@ -36,13 +49,27 @@
         <h5>参数输入请以逗号分隔!</h5>
     </div>
     <div class="info">
-        <span>body参数:</span><input name="body" type="text"/>
+        <span>body参数:</span>
+        <input name="body" type="text"
+               value=<% if (typeof api !== "undefined" ){ %>
+               <%= api.body %>
+                <% } %>>
     </div>
     <div class="info">
-        <span>params参数:</span><input name="params" type="text"/>
+        <span>params参数:</span>
+        <input name="params"
+               type="text"
+               value=<% if (typeof api !== "undefined" ){ %>
+               <%= api.params %>
+                <% } %>>
     </div>
     <div class="info">
-        <span>query参数:</span><input name="query" type="text"/>
+        <span>query参数:</span>
+        <input name="query"
+               type="text"
+               value=<% if (typeof api !== "undefined" ){ %>
+               <%= api.query %>
+                <% } %>>
     </div>
     <div style="text-align: center">
         <button class="sendInfo">确定</button>
@@ -52,3 +79,5 @@
 <script src="/js/createApiInfo.js"></script>
 </body>
 </html>
+
+
