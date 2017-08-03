@@ -4,7 +4,7 @@
  * @ 用于捕获内部错误，输出日志信息
  */
 
-import tracer from "tracer";
+import tracer from 'tracer';
 
 const logger = tracer.colorConsole({
   level: 'error',

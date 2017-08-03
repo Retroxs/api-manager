@@ -1,8 +1,8 @@
 /**
  * Created by HUI on 2017/8/1.
  */
-import mongoose from "mongoose";
-import moduleSchema from "../models/module";
+import mongoose from 'mongoose';
+import moduleSchema from '../models/module';
 
 mongoose.Promise = global.Promise;
 

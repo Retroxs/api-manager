@@ -2,8 +2,8 @@
  * Created by HUI on 2017/8/2.
  */
 
-import mongoose from "mongoose";
-import config from "../../config/common";
+import mongoose from 'mongoose';
+import config from '../../config/common';
 
 // mongoose.set('debug', mongodb.debug);
 mongoose.connect(config.mongo.uri, config.mongo.options);

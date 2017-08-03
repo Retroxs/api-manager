@@ -1,7 +1,7 @@
 /**
  * Created by HUI on 2017/8/1.
  */
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const ApiSchema = mongoose.Schema({
   module: {

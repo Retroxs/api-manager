@@ -1,9 +1,12 @@
 /**
  * Created by HUI on 2017/8/2.
  */
-const mongoose = require('mongoose');
-const moduleSchema = require('../models/module');
+import mongoose from 'mongoose';
+import moduleSchema from '../models/module';
+import apiScema from '../models/api';
+
 const ModuleModel = mongoose.model('Module');
+const ApiModel = mongoose.model('Api');
 
 class homeController {
   static async getHomePage(ctx) {
@@ -16,23 +19,26 @@ class homeController {
   }
 
   static async getApiInfo(ctx) {
-      const res = await ModuleModel.find({});
+    const res = await ModuleModel.find({});
     return ctx.render('apiInfo', {modules: res});
   }
 
   static async getCreateApiInfo(ctx) {
     const res = await ModuleModel.find({});
-    return ctx.render('createApiInfo',{modules:res});
+    return ctx.render('createApiInfo', {modules: res});
   }
 
   static async getCreateApiByModule(ctx) {
     const module = ctx.params.module;
     const res = await ModuleModel.find({});
-    return ctx.render('createApiInfo',{modules:res,selected:module});
+    return ctx.render('createApiInfo', {modules: res, selected: module});
   }
 
   static async getUpdateApiInfo(ctx) {
-    return ctx.render('createApiInfo');
+    const id = ctx.params.id;
+    const modules = await ModuleModel.find({});
+    const api = await ApiModel.findById(id);
+    return ctx.render('createApiInfo', {modules:modules, selected: api.module,api: api});
   }
 }
 
