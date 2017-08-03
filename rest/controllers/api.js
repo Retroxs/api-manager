@@ -67,7 +67,7 @@ class ApiController {
     if (!name) return ctx.error({ msg: 'api名称不能为空' });
     if (!api) return ctx.error({ msg: 'api地址不能为空' });
     const res = await ApiModel.findByIdAndUpdate(id, data);
-    if (res) ctx.success({ msg: 'Success', data: res });
+    if (res) return ctx.success({ msg: 'Success', data: res });
     return ctx.error({ msg: 'api不存在！' });
   }
 

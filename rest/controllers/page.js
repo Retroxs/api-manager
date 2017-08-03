@@ -25,20 +25,20 @@ class homeController {
 
   static async getCreateApiInfo(ctx) {
     const res = await ModuleModel.find({});
-    return ctx.render('createApiInfo', {modules: res});
+    return ctx.render('createApiInfo', {modules: res,title: '创建api信息'});
   }
 
   static async getCreateApiByModule(ctx) {
     const module = ctx.params.module;
     const res = await ModuleModel.find({});
-    return ctx.render('createApiInfo', {modules: res, selected: module});
+    return ctx.render('createApiInfo', {modules: res, selected: module,title:'创建api信息'});
   }
 
   static async getUpdateApiInfo(ctx) {
     const id = ctx.params.id;
     const modules = await ModuleModel.find({});
     const api = await ApiModel.findById(id);
-    return ctx.render('createApiInfo', {modules:modules, selected: api.module,api: api});
+    return ctx.render('createApiInfo', {modules:modules, selected: api.module,api: api,title: '更新api信息'});
   }
 }
 

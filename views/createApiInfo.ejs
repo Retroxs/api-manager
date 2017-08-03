@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="content">
-    <h4 class="Title">创建api接口</h4>
+    <h4 class="Title"><%=title%></h4>
     <div class="info">
         <span>模块名:</span>
         <select name="model">
@@ -80,7 +80,7 @@
                 <% } %>>
     </div>
     <div style="text-align: center">
-        <button class="sendInfo">确定</button>
+        <button class="sendInfo" _id=<% if (typeof api !== "undefined"){ %> <%= api.id%><%}%>>确定</button>
     </div>
 </div>
 <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
