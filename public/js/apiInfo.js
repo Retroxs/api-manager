@@ -50,4 +50,8 @@ function createApi() {
   window.location.href = '/createApiInfo/' + modelName
 }
 
+function createModel() {
+  window.location.href = '/createModel'
+}
+
 
