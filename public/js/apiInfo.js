@@ -24,7 +24,7 @@ function getApiList() {
         var model = `<div class="apiListMain" id="apiList">
             <p>${item.name}:</p>
             <p>${item.api}</p>
-            <button class="edit">编辑</button>
+            <button class="edit"><a href="/updateApiInfo/${item._id}">编辑</a></button>
             <button class="delete" onclick="deleteApi('${item._id}', this)">删除</button>
         </div>`
         $('.contentList').append(model)
