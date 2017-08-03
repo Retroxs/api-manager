@@ -11,30 +11,31 @@ var count = 0
  * 初始化select和参数列表
  * */
 function Initialization() {
-  [].map.call(config, (item, index) => {
-    var Node = `<option value="${item.name}">${item.name}</option>`
-    model.append(Node)
+  var model = $('#model').val()
+  $.ajax({
+    type: 'GET',
+    url: `/apis/get/${model}`,
+    success: function (res) {
+      setList(res.data)
+    }
   })
-
-  setList()
-  setQueryList()
 }
 /**
  * 初始化填写的参数
  * */
 function setQueryList() {
   var queryParams = list.find('option:selected').attr('query')
-  var body = list.find('option:selected').attr('body')
+  // var body = list.find('option:selected').attr('body')
   var params = list.find('option:selected').attr('params')
 
   var queryList = queryParams.split(',')
-  var bodyList = body.split(',')
+  // var bodyList = body.split(',')
   var paramsList = params.split(',')
 
   query.children().remove()
 
   appendPathList(queryList, 'query')
-  appendPathList(bodyList, 'body')
+  // appendPathList(bodyList, 'body')
   appendPathList(paramsList, 'params')
 }
 /**
@@ -58,20 +59,26 @@ function appendPathList(list, className) {
 /**
  * 循环创建二级select的选项
  * */
-function setList() {
+function setList(items) {
   var key = model.val()
   list.find('option').remove();
+  if(items.length === 0){
+    query.children().remove()
+    return
+  }
 
-  [].map.call(config, (item, index) => {
-    if (item.name == key) {
-      apiList = item.list
-    }
-  });
-
-  [].map.call(apiList, (item, index) => {
+  [].map.call(items, (item, index) => {
     var Node = `<option value="${item.api}" method="${item.method}" query="${item.query}" body="${item.body}" params="${item.params}">${item.name}</option>`
     list.append(Node)
   })
+
+  var bool = list.find('option:selected').attr('method')
+
+  if (bool == 'GET' || bool == 'DELETE'){
+    $('#bodyParams').css('display', 'none')
+  }else {
+    $('#bodyParams').css('display', 'block')
+  }
 
   setQueryList()
 }
@@ -113,40 +120,72 @@ function SendApi() {
     var method = control.attr('method')
     var api = control.val()
     var queryList = {}
-    var bodyList = {}
     var paramsList = {}
     var modelName = model.val()
     var apiName = list.find('option:selected').text()
+    var bodyList =$('#bodyParams textarea').val()
 
-    setParamsList('.query', queryList)
-    setParamsList('.body', bodyList)
+      setParamsList('.query', queryList)
+    // setParamsList('.body', bodyList)
     setParamsList('.params', paramsList)
 
-    var url = 'https://api.avgle.com/v1/collections/' + api;
-
     for (var key in paramsList) {
-      url = url.replace(new RegExp(`{${key}}`), paramsList[key])
+      api = api.replace(new RegExp(`{${key}}`), paramsList[key])
     }
 
-    if (method == "GET") {
-      axios.get(url, {
+    if (method == "GET" || method == "DELETE") {
+      axios.get(api, {
         params: queryList
       })
         .then((res) => {
           createJsonList(res.data, url, modelName, apiName)
         })
     } else {
-      axios.post(url, {
-        data: bodyList
+      if (!isJSON(bodyList)){
+        alert('body参数需要写成json格式')
+        return
+      }
+      axios.post(api, {
+        data: JSON.parse(bodyList)
       })
     }
 
   })
 }
 
+function isJSON (str, pass_object) {
+  if (pass_object && isObject(str)) return true;
+
+  if (!isString(str)) return false;
+
+  str = str.replace(/\s/g, '').replace(/\n|\r/, '');
+
+  if (/^\{(.*?)\}$/.test(str))
+    return /"(.*?)":(.*?)/g.test(str);
+
+  if (/^\[(.*?)\]$/.test(str)) {
+    return str.replace(/^\[/, '')
+      .replace(/\]$/, '')
+      .replace(/},{/g, '}\n{')
+      .split(/\n/)
+      .map(function (s) { return isJSON(s); })
+      .reduce(function (prev, curr) { return !!curr; });
+  }
+
+  return false;
+}
+
+function isString (x) {
+  return Object.prototype.toString.call(x) === '[object String]';
+}
+
+function isObject (obj) {
+  return Object.prototype.toString.call(obj) === '[object Object]';
+}
+
 window.onload = function () {
   Initialization()
   SendApi()
-  model.on('change', setList)
+  model.on('change', Initialization)
   list.on('change', setQueryList)
 }

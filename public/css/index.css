@@ -1,5 +1,4 @@
 
-
 .content {
     padding: 10px 15px;
     border: 1px solid #ccc;
@@ -11,20 +10,25 @@
     margin-bottom: 20px;
 }
 
-.content select{
-    margin-top:10px;
+.content select {
+    margin-top: 10px;
 }
 
-.title{
+.title {
     display: inline-block;
-    width:80px;
+    width: 80px;
     text-align: right;
-    margin-right:20px;
-    margin-bottom:10px;
+    margin-right: 20px;
+    margin-bottom: 10px;
 }
 
 .query,
 .body,
-.params{
-    margin-bottom:10px;
+.params {
+    margin-bottom: 10px;
+}
+
+#bodyParams textarea{
+    width:300px;
+    height:300px;
 }
