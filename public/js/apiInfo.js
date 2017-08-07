@@ -51,7 +51,7 @@ function createApi() {
 }
 
 function createModel() {
-  window.location.href = '/createModel'
+  window.location.href = '/moduleList'
 }
 
 

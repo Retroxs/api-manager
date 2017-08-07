@@ -61,6 +61,10 @@ button{
     text-align: center;
 }
 
+ul li{
+    list-style: none;
+}
+
 .content {
     padding: 10px 15px;
     border: 1px solid #ccc;

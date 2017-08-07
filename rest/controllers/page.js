@@ -40,6 +40,11 @@ class homeController {
     const api = await ApiModel.findById(id);
     return ctx.render('createApiInfo', {modules:modules, selected: api.module,api: api,title: '更新api信息'});
   }
+
+  static async getModuleList(ctx) {
+    const modules = await ModuleModel.find({});
+    return ctx.render('moduleList', {modules:modules});
+  }
 }
 
 export default homeController;

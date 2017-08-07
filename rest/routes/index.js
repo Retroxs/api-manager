@@ -13,6 +13,7 @@ router
   .get('apiInfo', pageCtrl.getApiInfo)
   .get('createApiInfo', pageCtrl.getCreateApiInfo)
   .get('updateApiInfo/:id', pageCtrl.getUpdateApiInfo)
+  .get('moduleList', pageCtrl.getModuleList)
   .get('createApiInfo/:module', pageCtrl.getCreateApiByModule);
 
 export default router;

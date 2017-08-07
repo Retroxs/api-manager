@@ -1,0 +1,19 @@
+.content ul li{
+    text-align: center;
+    margin:10px;
+}
+
+.content ul li label{
+    display: inline-block;
+    min-width: 300px;
+    margin-right: 20px;
+}
+
+.content ul li button{
+    background-color: #50bfff;
+    border-color: #50bfff;
+}
+
+.content h4{
+    text-align: center;
+}

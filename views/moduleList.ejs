@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>接口调试</title>
+    <link rel="stylesheet" href="/css/jquery.jsonview.css"/>
+    <link rel="stylesheet" href="/css/public.css"/>
+    <link rel="stylesheet" href="/css/moduleList.css"/>
+</head>
+<body>
+<div class="content">
+    <h4>模块列表</h4>
+    <ul>
+        <% for(var i = 0; i < modules.length; i++) { %>
+        <li>
+            <label for=""><%= modules[i].label %></label>
+            <button>编辑</button>
+        </li>
+        <% } %>
+    </ul>
+
+    <div style="text-align: center">
+        <button onclick="createModel()">新建模板</button>
+    </div>
+</div>
+
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/jquery.jsonview.js"></script>
+<script src="/js/moduleList.js"></script>
+</body>
+</html>
