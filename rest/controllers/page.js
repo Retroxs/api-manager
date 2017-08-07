@@ -15,7 +15,13 @@ class homeController {
   }
 
   static async getCreateModel(ctx) {
-    return ctx.render('createModel');
+    return ctx.render('createModel',{title: '新建模版'});
+  }
+
+  static async getUpdateModel(ctx) {
+    const id = ctx.params.id;
+    const res = await ModuleModel.findById(id);
+    return ctx.render('createModel',{module:res,title: '更新模版'});
   }
 
   static async getApiInfo(ctx) {

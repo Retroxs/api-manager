@@ -14,7 +14,7 @@
         <% for(var i = 0; i < modules.length; i++) { %>
         <li>
             <label for=""><%= modules[i].label %></label>
-            <button>编辑</button>
+            <button onclick="window.location.href='/updateModel/<%= modules[i].id %>'">编辑</button>
         </li>
         <% } %>
     </ul>
