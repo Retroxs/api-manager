@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="content">
-    <h4 class="Title"><%=title%></h4>
+    <h4 class="Title"><%= title %></h4>
     <div class="info">
         <span>模块名:</span>
         <select name="model">
@@ -26,7 +26,8 @@
         <input name="name" type="text"
                value=<% if (typeof api !== "undefined" ){ %>
                <%= api.name %>
-                <% } %>>
+               <% } %>
+        >
     </div>
     <div class="info">
         <span>url:</span>
@@ -34,23 +35,45 @@
                type="text"
                value=<% if (typeof api !== "undefined" ){ %>
                <%= api.api %>
-                <% } %>>
+               <% } %>
+        >
+    </div>
+    <div class="info">
+        <span>备注:</span>
+        <input name="remark"
+               type="text"
+               value=<% if (typeof api !== "undefined" ){ %>
+               <%= api.comment %>
+               <% } %>
+        >
     </div>
     <div class="info">
         <span>方法:</span>
         <select name="method">
-            <option value="GET" <% if (typeof api !== "undefined" && api.method === "GET" ){ %>
+            <option value="GET"
+                    <% if (typeof api !== "undefined" && api.method === "GET" ){ %>
                     selected
-                    <% } %>>GET</option>
-            <option value="POST" <% if (typeof api !== "undefined" && api.method === "POST"){ %>
+                    <% } %>
+            >GET
+            </option>
+            <option value="POST"
+                    <% if (typeof api !== "undefined" && api.method === "POST"){ %>
                     selected
-                    <% } %>>POST</option>
-            <option value="PUT" <% if (typeof api !== "undefined" && api.method === "PUT"){ %>
+                    <% } %>
+            >POST
+            </option>
+            <option value="PUT"
+                    <% if (typeof api !== "undefined" && api.method === "PUT"){ %>
                     selected
-                    <% } %>>PUT</option>
-            <option value="DELETE" <% if (typeof api !== "undefined" && api.method === "DELTE"){ %>
+                    <% } %>
+            >PUT
+            </option>
+            <option value="DELETE"
+                    <% if (typeof api !== "undefined" && api.method === "DELTE"){ %>
                     selected
-                    <% } %>>DELETE</option>
+                    <% } %>
+            >DELETE
+            </option>
         </select>
     </div>
     <div class="info">
@@ -61,7 +84,8 @@
         <input name="body" type="text"
                value=<% if (typeof api !== "undefined" ){ %>
                <%= api.body %>
-                <% } %>>
+               <% } %>
+        >
     </div>
     <div class="info">
         <span>params参数:</span>
@@ -69,7 +93,8 @@
                type="text"
                value=<% if (typeof api !== "undefined" ){ %>
                <%= api.params %>
-                <% } %>>
+               <% } %>
+        >
     </div>
     <div class="info">
         <span>query参数:</span>
@@ -77,18 +102,22 @@
                type="text"
                value=<% if (typeof api !== "undefined" ){ %>
                <%= api.query %>
-                <% } %>>
+               <% } %>
+        >
     </div>
     <div style="text-align: center">
-        <button class="sendInfo" _id=<% if (typeof api !== "undefined"){ %> <%= api.id%><%}%>>确定</button>
+        <button class="sendInfo" _id=<% if (typeof api !== "undefined"){ %> <%= api.id %>
+        <% } %>
+        >确定
+        </button>
     </div>
 </div>
 <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <% if (typeof api !== "undefined"){ %>
 <script src="/js/updateApiInfo.js"></script>
-<%} else {%>
+<% } else { %>
 <script src="/js/createApiInfo.js"></script>
-<%}%>
+<% } %>
 </body>
 </html>
 

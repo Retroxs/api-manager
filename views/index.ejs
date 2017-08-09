@@ -9,19 +9,25 @@
 </head>
 <body>
 <div class="content" style="">
+    <h4 style="text-align: center">接口调试工具</h4>
     <div>
-        <label class="title" for="">模块:</label>
-        <select name="" id="model">
+        <label class="title" for="">模块:</label><!--
+        --><select name="" id="model">
             <% for(var i = 0; i < modules.length; i++) { %>
             <option value="<%= modules[i].label %>"><%= modules[i].label %></option>
             <% } %>
         </select><br>
     </div>
     <div>
-        <label class="title" for="">接口列表:</label>
-        <select name="" id="list"></select><br>
+        <label class="title" for="">接口列表:</label><!--
+        --><select name="" id="list"></select><br>
     </div>
-    <div><label class="title" for="">参数列表:</label><br></div>
+    <div>
+        <label class="title">备注:</label><span class="remark"></span>
+    </div>
+    <div>
+        <label class="title" for="">参数列表:</label><br>
+    </div>
     <div id="query">
 
     </div>

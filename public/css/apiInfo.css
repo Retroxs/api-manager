@@ -12,6 +12,7 @@
 .apiListMain{
     width:800px;
     margin:0 auto;
+    overflow: hidden;
 }
 
 .apiListMain span{
@@ -28,8 +29,9 @@
     display: inline-block;
 }
 
-.apiListMain button.edit{
-    margin:0 10px;
+.apiListMain button{
+    float: right;
+    margin:10px;
 }
 
 .apiListMain button.delete{

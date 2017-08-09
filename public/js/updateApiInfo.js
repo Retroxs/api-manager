@@ -17,7 +17,8 @@ function createApiInfo() {
     method: '',
     body: '',
     params: '',
-    query: ''
+    query: '',
+    comment: ''
   }
 
   json.module = $('select[name="model"]').val()
@@ -27,6 +28,7 @@ function createApiInfo() {
   json.body = $('input[name="body"]').val().split(',')
   json.params = $('input[name="params"]').val().split(',')
   json.query = $('input[name="query"]').val().split(',')
+  json.comment = $('input[name="remark"]').val()
 
   $.ajax({
     type: 'PUT',

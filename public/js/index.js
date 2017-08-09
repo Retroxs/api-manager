@@ -25,26 +25,28 @@ function Initialization() {
  * */
 function setQueryList() {
   var queryParams = list.find('option:selected').attr('query')
-  // var body = list.find('option:selected').attr('body')
   var params = list.find('option:selected').attr('params')
 
   var queryList = queryParams.split(',')
-  // var bodyList = body.split(',')
   var paramsList = params.split(',')
 
   var bool = list.find('option:selected').attr('method')
 
-  if (bool == 'GET' || bool == 'DELETE'){
+  var comment = list.find('option:selected').attr('comment')
+
+  if (bool == 'GET' || bool == 'DELETE') {
     $('#bodyParams').css('display', 'none')
-  }else {
+  } else {
     $('#bodyParams').css('display', 'block')
   }
 
   query.children().remove()
+  $('.remark').html('')
 
   appendPathList(queryList, 'query')
-  // appendPathList(bodyList, 'body')
   appendPathList(paramsList, 'params')
+
+  $('.remark').html(comment)
 }
 /**
  * 循环参数数组创建dom
@@ -70,13 +72,13 @@ function appendPathList(list, className) {
 function setList(items) {
   var key = model.val()
   list.find('option').remove();
-  if(items.length === 0){
+  if (items.length === 0) {
     query.children().remove()
     return
   }
 
   [].map.call(items, (item, index) => {
-    var Node = `<option value="${item.api}" method="${item.method}" query="${item.query}" body="${item.body}" params="${item.params}">${item.name}</option>`
+    var Node = `<option value="${item.api}" method="${item.method}" query="${item.query}" body="${item.body}" params="${item.params}" comment="${item.comment}">${item.name}</option>`
     list.append(Node)
   })
 
@@ -123,10 +125,9 @@ function SendApi() {
     var paramsList = {}
     var modelName = model.val()
     var apiName = list.find('option:selected').text()
-    var bodyList =$('#bodyParams textarea').val()
+    var bodyList = $('#bodyParams textarea').val()
 
-      setParamsList('.query', queryList)
-    // setParamsList('.body', bodyList)
+    setParamsList('.query', queryList)
     setParamsList('.params', paramsList)
 
     for (var key in paramsList) {
@@ -140,11 +141,11 @@ function SendApi() {
         .then((res) => {
           createJsonList(res, api, modelName, apiName)
         })
-        // .catch((res) => {
-        //   createJsonList(res, api, modelName, apiName)
-        // })
+      // .catch((res) => {
+      //   createJsonList(res, api, modelName, apiName)
+      // })
     } else {
-      if (!isJSON(bodyList)){
+      if (!isJSON(bodyList)) {
         alert('body参数需要写成json格式')
         return
       }
@@ -157,7 +158,7 @@ function SendApi() {
   })
 }
 
-function isJSON (str, pass_object) {
+function isJSON(str, pass_object) {
   if (pass_object && isObject(str)) return true;
 
   if (!isString(str)) return false;
@@ -172,18 +173,22 @@ function isJSON (str, pass_object) {
       .replace(/\]$/, '')
       .replace(/},{/g, '}\n{')
       .split(/\n/)
-      .map(function (s) { return isJSON(s); })
-      .reduce(function (prev, curr) { return !!curr; });
+      .map(function (s) {
+        return isJSON(s);
+      })
+      .reduce(function (prev, curr) {
+        return !!curr;
+      });
   }
 
   return false;
 }
 
-function isString (x) {
+function isString(x) {
   return Object.prototype.toString.call(x) === '[object String]';
 }
 
-function isObject (obj) {
+function isObject(obj) {
   return Object.prototype.toString.call(obj) === '[object Object]';
 }
 
