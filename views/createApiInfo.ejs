@@ -11,15 +11,17 @@
     <h4 class="Title"><%= title %></h4>
     <div class="info">
         <span>模块名:</span>
-        <select name="model">
-            <% for(var i = 0; i < modules.length; i++) { %>
-            <option
-                    <% if (typeof selected !== "undefined" && modules[i].label === selected ){ %>
-                    selected
-                    <% } %>
-            ><%= modules[i].label %></option>
-            <% } %>
-        </select>
+        <div style="display: inline-block">
+            <select name="model">
+                <% for(var i = 0; i < modules.length; i++) { %>
+                <option
+                        <% if (typeof selected !== "undefined" && modules[i].label === selected ){ %>
+                        selected
+                        <% } %>
+                ><%= modules[i].label %></option>
+                <% } %>
+            </select>
+        </div>
     </div>
     <div class="info">
         <span>api名称:</span>
@@ -49,32 +51,34 @@
     </div>
     <div class="info">
         <span>方法:</span>
-        <select name="method">
-            <option value="GET"
-                    <% if (typeof api !== "undefined" && api.method === "GET" ){ %>
-                    selected
-                    <% } %>
-            >GET
-            </option>
-            <option value="POST"
-                    <% if (typeof api !== "undefined" && api.method === "POST"){ %>
-                    selected
-                    <% } %>
-            >POST
-            </option>
-            <option value="PUT"
-                    <% if (typeof api !== "undefined" && api.method === "PUT"){ %>
-                    selected
-                    <% } %>
-            >PUT
-            </option>
-            <option value="DELETE"
-                    <% if (typeof api !== "undefined" && api.method === "DELTE"){ %>
-                    selected
-                    <% } %>
-            >DELETE
-            </option>
-        </select>
+        <div style="display: inline-block">
+            <select name="method">
+                <option value="GET"
+                        <% if (typeof api !== "undefined" && api.method === "GET" ){ %>
+                        selected
+                        <% } %>
+                >GET
+                </option>
+                <option value="POST"
+                        <% if (typeof api !== "undefined" && api.method === "POST"){ %>
+                        selected
+                        <% } %>
+                >POST
+                </option>
+                <option value="PUT"
+                        <% if (typeof api !== "undefined" && api.method === "PUT"){ %>
+                        selected
+                        <% } %>
+                >PUT
+                </option>
+                <option value="DELETE"
+                        <% if (typeof api !== "undefined" && api.method === "DELTE"){ %>
+                        selected
+                        <% } %>
+                >DELETE
+                </option>
+            </select>
+        </div>
     </div>
     <div class="info">
         <h5>参数输入请以逗号分隔!</h5>
