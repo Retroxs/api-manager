@@ -12,6 +12,7 @@ const ApiSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  comment:String,
   api: String,
   method: String,
   params: Array,
