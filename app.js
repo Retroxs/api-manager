@@ -8,7 +8,6 @@ import bodyParser from 'koa-bodyparser';
 import logger from 'koa-logger';
 import staticServer from 'koa-static';
 import config from './config/common';
-import proxy from 'koa-proxy';
 import db from './rest/models/db';
 import api from './rest/routes/apis';
 import home from './rest/routes/index';
@@ -38,11 +37,6 @@ router
 
 app.use(router.routes());
 
-app.use(proxy({
-  host: config.proxy_host,
-  match: /^\/api\//,
-  jar: true
-}));
 
 app.listen(config.port,() => {
   console.log(`app is running on port ${config.port}`);

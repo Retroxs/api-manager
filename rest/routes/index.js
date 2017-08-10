@@ -4,6 +4,7 @@
 
 import koa_router from 'koa-router';
 import pageCtrl from '../controllers/page';
+import testCtrl from '../controllers/apitest';
 
 const router = koa_router();
 
@@ -15,6 +16,7 @@ router
   .get('createApiInfo', pageCtrl.getCreateApiInfo)
   .get('updateApiInfo/:id', pageCtrl.getUpdateApiInfo)
   .get('moduleList', pageCtrl.getModuleList)
-  .get('createApiInfo/:module', pageCtrl.getCreateApiByModule);
+  .get('createApiInfo/:module', pageCtrl.getCreateApiByModule)
+  .post('testapi',testCtrl.request)
 
 export default router;

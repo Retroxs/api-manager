@@ -135,11 +135,13 @@ function SendApi() {
     }
 
     if (method == "GET" || method == "DELETE") {
-      axios.get(api, {
+      axios.post("/testapi", {
+        url:api,
+        method:method,
         params: queryList
       })
         .then((res) => {
-          createJsonList(res, api, modelName, apiName)
+          createJsonList(res.data, api, modelName, apiName)
         })
       // .catch((res) => {
       //   createJsonList(res, api, modelName, apiName)
@@ -149,7 +151,12 @@ function SendApi() {
         alert('body参数需要写成json格式')
         return
       }
-      axios.post(api, JSON.parse(bodyList))
+      axios.post("/testapi", {
+        url:api,
+        method:method,
+        params: queryList,
+        body:JSON.parse(bodyList)
+      })
         .then((res) => {
           createJsonList(res.data, api, modelName, apiName)
         })
