@@ -8,6 +8,10 @@ const ApiSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  host: {
+    type: String,
+    required: true,
+  },
   name: {
     type: String,
     required: true,

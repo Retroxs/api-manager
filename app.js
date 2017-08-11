@@ -12,6 +12,7 @@ import db from './rest/models/db';
 import api from './rest/routes/apis';
 import home from './rest/routes/index';
 import modules from './rest/routes/module';
+import host from './rest/routes/host';
 import koa_response from './rest/middlewares/response';
 import koa_filter from './rest/middlewares/filter';
 import path from 'path';
@@ -33,7 +34,8 @@ app.use(views(`${__dirname}/views`, {
 router
   .use('/', home.routes())
   .use('/apis', api.routes())
-  .use('/modules', modules.routes());
+  .use('/modules', modules.routes())
+  .use('/host', host.routes());
 
 app.use(router.routes());
 

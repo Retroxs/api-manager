@@ -3,10 +3,12 @@
  */
 import mongoose from 'mongoose';
 import moduleSchema from '../models/module';
-import apiScema from '../models/api';
+import apiSchema from '../models/api';
+import hostSchema from '../models/host';
 
 const ModuleModel = mongoose.model('Module');
 const ApiModel = mongoose.model('Api');
+const HostModel = mongoose.model('Host');
 
 class homeController {
   static async getHomePage(ctx) {
@@ -31,7 +33,8 @@ class homeController {
 
   static async getCreateApiInfo(ctx) {
     const res = await ModuleModel.find({});
-    return ctx.render('createApiInfo', {modules: res,title: '创建api信息'});
+    const host = await HostModel.find({});
+    return ctx.render('createApiInfo', {hosts:host,modules: res,title: '创建api信息'});
   }
 
   static async getCreateApiByModule(ctx) {
@@ -44,7 +47,8 @@ class homeController {
     const id = ctx.params.id;
     const modules = await ModuleModel.find({});
     const api = await ApiModel.findById(id);
-    return ctx.render('createApiInfo', {modules:modules, selected: api.module,api: api,title: '更新api信息'});
+    const host = await HostModel.find({});
+    return ctx.render('createApiInfo', {host:api.host,hosts:host,modules:modules, selected: api.module,api: api,title: '更新api信息'});
   }
 
   static async getModuleList(ctx) {
