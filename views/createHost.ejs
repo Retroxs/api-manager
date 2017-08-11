@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/css/public.css"/>
+    <link rel="stylesheet" href="/css/createModel.css"/>
+</head>
+<body>
+<div class="content">
+    <h4 class="Title"><%=title%></h4>
+
+    <div class="createModel">
+        <span><%=label%></span><input type="text" value=<% if (typeof module !== "undefined"){ %><%=module.host%><%}%> >
+    </div>
+
+    <div style="text-align: center">
+        <% if (typeof module !== "undefined"){ %>
+        <button onclick="sendHost('<%=module.id%>')">确定</button>
+        <%} else {%>
+        <button class="sendHost">确定</button>
+        <%}%>
+    </div>
+</div>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<% if (typeof module !== "undefined"){ %>
+<script src="/js/updateHost.js"></script>
+<%} else {%>
+<script src="/js/createHost.js"></script>
+<%}%>
+</body>
+</html>

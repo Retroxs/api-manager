@@ -5,6 +5,7 @@
 import koa_router from 'koa-router';
 import pageCtrl from '../controllers/page';
 import testCtrl from '../controllers/apitest';
+import hostCtrl from '../controllers/host'
 
 const router = koa_router();
 
@@ -17,6 +18,9 @@ router
   .get('updateApiInfo/:id', pageCtrl.getUpdateApiInfo)
   .get('moduleList', pageCtrl.getModuleList)
   .get('createApiInfo/:module', pageCtrl.getCreateApiByModule)
+  .get('hostList', pageCtrl.getHostList)
+  .get('createHost', pageCtrl.getCreateHost)
+  .get('updateHost/:id', pageCtrl.getUpdateHost)
   .post('testapi',testCtrl.request)
 
 export default router;

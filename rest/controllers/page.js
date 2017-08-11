@@ -55,6 +55,22 @@ class homeController {
     const modules = await ModuleModel.find({});
     return ctx.render('moduleList', {modules:modules});
   }
+
+  static async getHostList(ctx) {
+    const modules = await HostModel.find({})
+    console.log(modules)
+    return ctx.render('hostList', {modules:modules})
+  }
+
+  static async getCreateHost(ctx) {
+    return ctx.render('createHost', {title: '创建Host信息',label: '创建Host:'})
+  }
+
+  static async getUpdateHost(ctx) {
+    const id = ctx.params.id;
+    const module = await HostModel.findById(id);
+    return ctx.render('createHost', {title: '更新Host信息', module: module,label: '更新Host:'})
+  }
 }
 
 export default homeController;
