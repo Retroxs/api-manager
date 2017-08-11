@@ -12,6 +12,7 @@ function createApiInfo() {
 
   var json = {
     module: '',
+    host:'',
     name: '',
     api: '',
     method: '',
@@ -22,6 +23,7 @@ function createApiInfo() {
   }
 
   json.module = $('select[name="model"]').val()
+  json.host = $('select[name="host"]').val()
   json.name = $('input[name="name"]').val()
   json.api = $('input[name="url"]').val()
   json.method = $('select[name="method"]').val()

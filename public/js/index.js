@@ -78,7 +78,7 @@ function setList(items) {
   }
 
   [].map.call(items, (item, index) => {
-    var Node = `<option value="${item.api}" method="${item.method}" query="${item.query}" body="${item.body}" params="${item.params}" comment="${item.comment}">${item.name}</option>`
+    var Node = `<option value="${item.host+item.api}" method="${item.method}" query="${item.query}" body="${item.body}" params="${item.params}" comment="${item.comment}">${item.name}</option>`
     list.append(Node)
   })
 
