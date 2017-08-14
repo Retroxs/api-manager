@@ -40,7 +40,8 @@ class homeController {
   static async getCreateApiByModule(ctx) {
     const module = ctx.params.module;
     const res = await ModuleModel.find({});
-    return ctx.render('createApiInfo', {modules: res, selected: module,title:'创建api信息'});
+    const host = await HostModel.find({});
+    return ctx.render('createApiInfo', {hosts:host,modules: res, selected: module,title:'创建api信息'});
   }
 
   static async getUpdateApiInfo(ctx) {
