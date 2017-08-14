@@ -79,3 +79,17 @@ ul li{
 .Title{
     text-align: center;
 }
+
+.top{
+    height: 50px;
+    text-align: center
+}
+
+.top ul {
+
+display: inline-block
+}
+.top ul li{
+    float: left;
+    margin-left: 10px
+}

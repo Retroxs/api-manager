@@ -1,49 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>接口调试</title>
-    <link rel="stylesheet" href="/css/jquery.jsonview.css"/>
-    <link rel="stylesheet" href="/css/public.css"/>
-    <link rel="stylesheet" href="/css/index.css"/>
+    <link rel="stylesheet" href="/css/jquery.jsonview.css" />
+    <link rel="stylesheet" href="/css/public.css" />
+    <link rel="stylesheet" href="/css/index.css" />
 </head>
+
 <body>
-<div class="content" style="">
-    <h4 style="text-align: center">接口调试工具</h4>
-    <div>
-        <label class="title" for="">模块:</label><!--
+    <%- include('template/top'); %>
+        <div class="content" style="">
+            <h4 style="text-align: center">接口调试</h4>
+            <div>
+                <label class="title" for="">模块:</label>
+                <!--
         --><select name="" id="model">
             <% for(var i = 0; i < modules.length; i++) { %>
             <option value="<%= modules[i].label %>"><%= modules[i].label %></option>
             <% } %>
         </select><br>
-    </div>
-    <div>
-        <label class="title" for="">接口列表:</label><!--
+            </div>
+            <div>
+                <label class="title" for="">接口列表:</label>
+                <!--
         --><select name="" id="list"></select><br>
-    </div>
-    <div>
-        <label class="title">备注:</label><span class="remark"></span>
-    </div>
-    <div>
-        <label class="title" for="">参数列表:</label><br>
-    </div>
-    <div id="query">
+            </div>
+            <div>
+                <label class="title">备注:</label><span class="remark"></span>
+            </div>
+            <div>
+                <label class="title" for="">参数列表:</label><br>
+            </div>
+            <div id="query">
 
-    </div>
-    <div id="bodyParams">
-        <label class="title" for="">body参数:</label><br>
-        <textarea></textarea>
-    </div>
-    <div style="text-align: center">
-        <button id="send">发送</button>
-    </div>
-</div>
-
-<div id="json"></div>
-<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/jquery.jsonview.js"></script>
-<script src="//unpkg.com/axios/dist/axios.min.js"></script>
-<script src="/js/index.js"></script>
+            </div>
+            <div id="bodyParams">
+                <label class="title" for="">body参数:</label><br>
+                <textarea></textarea>
+            </div>
+            <div style="text-align: center">
+                <button id="send">发送</button>
+            </div>
+        </div>
+        <div id="json"></div>
+        <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+        <script src="/js/jquery.jsonview.js"></script>
+        <script src="//unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="/js/index.js"></script>
 </body>
+
 </html>
